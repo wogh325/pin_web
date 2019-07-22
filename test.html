@@ -4,6 +4,13 @@
 <!--본문을 설명하는 내용-->
 <head>
   <title>PIN_WEB_html_test</title>
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>간단한 지도 표시하기</title>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+
 <meta charset="utf-8">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -33,5 +40,16 @@
 똥<input type="checkbox"><br>
 똥<input type="checkbox"><br>
 똥<input type="checkbox"><br>
+
+<div id="map" style="width:100%;height:400px;"></div>
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+</script>
 </body>
 </html>
