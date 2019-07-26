@@ -8,16 +8,57 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 75%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
-        margin: 0;
+        margin: 3%;
         padding: 0;
       }
+
+      table.type09 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+table.type09 thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+table.type09 tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.type09 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC85GzmFtDZDiM0r5Tmu3KNRL-23lZzV-A"></script>
+  <!--  <iframe id="inlineFrameExample"
+        title="Inline Frame Example"
+        width="300"
+        height="200"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+    </iframe>
+    <iframe id="Example2"
+    title="iframe Example 2"
+    width="400" height="300"
+    style="border:none"
+    src="https://maps.google.com/maps?f=q&source=s_q&q=buenos+aires&sll=37.0625,-95.677068&sspn=38.638819,80.859375&t=h&hnear=Buenos+Aires,+Argentina&z=11&ll=-34.603723,-58.381593&output=embed">
+</iframe>-->
+
     <script>
       // In the following example, markers appear when the user clicks on the map.
       // Each marker is labeled with a single alphabetical character.
@@ -26,18 +67,24 @@
 
       function initialize() {
         var bangalore = { lat: 12.97, lng: 77.59 };
+        var korea = { lat: 37.57, lng: 126.98 };
+        var us = { lat: 37.09, lng: -92.71 };
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: bangalore
+          zoom: 2,
+          center: { lat: 0, lng: 0 } //bangalore
         });
 
+
         // This event listener calls addMarker() when the map is clicked.
+        //
         google.maps.event.addListener(map, 'click', function(event) {
           addMarker(event.latLng, map);
         });
 
         // Add a marker at the center of the map.
-        addMarker(bangalore, map);
+        addMarker(us, map);
+        addMarker({ lat: 0, lng: 0 }, map);
+        addMarker({ lat: -85, lng: -178 }, map);
       }
 
       // Adds a marker to the map.
@@ -55,6 +102,45 @@
     </script>
   </head>
   <body>
+    <h1><a href="index.html"><strong>PIN_WEB</strong><a></h1>
+  <ol>
+  <li><a href="1.html">HTML</a></li>
+  <li><a href="2.html">CSS</a></li>
+  <li><a href="3.html">JavaScript</a></li>
+  <li><a href="test.html">testpage</a></li>
+  <li><a href="googletest.html">googletestpage</a></li>
+  </ol>
     <div id="map"></div>
+
+    <table class="type09">
+    <thead>
+    <tr>
+        <th scope="cols">Color</th>
+        <th scope="cols">Timestamp</th>
+        <th scope="cols">Latitude</th>
+        <th scope="cols">Longitude</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">a1</th>
+        <td>YY/MM/DD HH/MM/SS US</td>
+        <td>37.5665° N</td>
+        <td>126.9780° E</td>
+    </tr>
+    <tr>
+        <th scope="row">a2</th>
+        <td>YY/MM/DD HH/MM/SS US</td>
+        <td>37.0902° N</td>
+        <td>-92.7129° E</td>
+    </tr>
+    <tr>
+        <th scope="row">a3</th>
+        <td>YY/MM/DD HH/MM/SS US</td>
+        <td>35.8617° N</td>
+        <td>104.1954° E</td>
+    </tr>
+    </tbody>
+</table>
   </body>
 </html>
